@@ -12,7 +12,7 @@ const CartButton = (props) => {
   };
 
   const renderNumItems = numberCartItems.reduce(
-    (acum, ele) => acum + ele.items,
+    (acum, ele) => acum + Number(ele.amount),
     0
   );
 

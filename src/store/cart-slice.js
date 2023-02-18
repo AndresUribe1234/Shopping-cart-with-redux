@@ -10,7 +10,20 @@ const cartSlice = createSlice({
       state.cartVisualizationStatus = !state.cartVisualizationStatus;
     },
     addToCart(state, action) {
-      state.cartItems = [...state.cartItems, action.payload.newItem];
+      const indexItem = state.cartItems.findIndex(
+        (ele) => ele.id === action.payload.newItem.id
+      );
+
+      if (state.cartItems[indexItem]) {
+        const newAmount = Number(state.cartItems[indexItem].amount) + 1;
+
+        state.cartItems[indexItem] = {
+          ...state.cartItems[indexItem],
+          amount: newAmount,
+        };
+      } else {
+        state.cartItems = [...state.cartItems, action.payload.newItem];
+      }
     },
     removeFromCart(state, action) {},
   },
