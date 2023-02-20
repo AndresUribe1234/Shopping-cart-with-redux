@@ -43,6 +43,10 @@ const cartSlice = createSlice({
         state.cartItems.splice(indexItem, 1);
       }
     },
+    initializeCartData(state, action) {
+      console.log(action.payload.cartData);
+      state.cartItems = [...action.payload.cartData];
+    },
   },
 });
 

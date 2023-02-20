@@ -1,16 +1,22 @@
 import Cart from "./components/Cart/Cart";
 import Layout from "./components/Layout/Layout";
 import Products from "./components/Shop/Products";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
+import { getCartData } from "./store/cart-actions";
 
 let isInitial = true;
 
 function App() {
+  const dispatch = useDispatch();
   const cartVisualization = useSelector(
     (state) => state.cart.cartVisualizationStatus
   );
   const cart = useSelector((state) => state.cart.cartItems);
+
+  useEffect(() => {
+    dispatch(getCartData());
+  }, [dispatch]);
 
   useEffect(() => {
     const sendCartData = async () => {
@@ -38,7 +44,7 @@ function App() {
     }
 
     sendCartData().catch((err) => console.log(err));
-  }, [cart]);
+  }, [cart, dispatch]);
 
   return (
     <Layout>
