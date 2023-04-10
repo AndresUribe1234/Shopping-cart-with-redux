@@ -12,6 +12,10 @@ To start the application, run the following command:
 
 This will start the application on your local server. You can then view the application in your web browser at `http://localhost:3000`.
 
+## Production
+
+The application is also available in production at the following URL: https://shopping-cart-andres-uribe.netlify.app/
+
 ## Features
 
 The application includes the following features:
@@ -34,7 +38,3 @@ The following technologies were used to build this application:
 ## Contributing
 
 Contributions to this project are welcome. If you would like to contribute, please fork the repository and submit a pull request.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
